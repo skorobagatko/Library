@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="com.skorobahatko.library.entity.Category" %>
 <%@ page import="com.skorobahatko.library.entity.Author" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -41,69 +42,33 @@
     <!-- End Login-details -->
 </div>
 <!-- End Header -->
-<!-- Slider -->
-<%--<div id="slider">--%>
-    <%--<div class="shell">--%>
-        <%--<ul>--%>
-            <%--<li>--%>
-                <%--<div class="image">--%>
-                    <%--<img src="${pageContext.request.contextPath}/resources/images/books.png" alt=""/>--%>
-                <%--</div>--%>
-                <%--<div class="details">--%>
-                    <%--<h2>Bestsellers</h2>--%>
-                    <%--<h3>Special Offers</h3>--%>
-                    <%--<p class="title">Pellentesque congue lorem quis massa blandit non pretium nisi pharetra</p>--%>
-                    <%--<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent--%>
-                        <%--id odio in tortor scelerisque dictum. Phasellus varius sem sit amet metus volutpat--%>
-                        <%--vel vehicula nunc lacinia.--%>
-                    <%--</p>--%>
-                    <%--<a href="#" class="read-more-btn">Read</a>--%>
-                <%--</div>--%>
-            <%--</li>--%>
-            <%--<li>--%>
-                <%--<div class="image">--%>
-                    <%--<img src="resources/images/books.png" alt=""/>--%>
-                <%--</div>--%>
-                <%--<div class="details">--%>
-                    <%--<h2>Bestsellers</h2>--%>
-                    <%--<h3>Special Offers</h3>--%>
-                    <%--<p class="title">Pellentesque congue lorem quis massa blandit non pretium nisi pharetra</p>--%>
-                    <%--<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent--%>
-                        <%--id odio in tortor scelerisque dictum. Phasellus varius sem sit amet metus volutpat--%>
-                        <%--vel vehicula nunc lacinia.--%>
-                    <%--</p>--%>
-                    <%--<a href="#" class="read-more-btn">Read</a>--%>
-                <%--</div>--%>
-            <%--</li>--%>
-        <%--</ul>--%>
-        <%--<div class="nav">--%>
-            <%--<a href="#">1</a>--%>
-            <%--<a href="#">2</a>--%>
-        <%--</div>--%>
-    <%--</div>--%>
-<%--</div>--%>
-<!-- End Slider -->
 <!-- Main -->
 <div id="main" class="shell">
+
+    <form class="search" action="#">
+        <input class="search-field" type="text">
+        <input class="search-btn" type="submit" value="Search">
+    </form>
+
     <!-- Sidebar -->
     <div id="sidebar">
         <ul class="categories">
             <li>
                 <h4>Categories</h4>
                 <ul>
-                    <jsp:useBean id="categories" class="com.skorobahatko.library.util.CategoryUtil"/>
-                    <% for(Category c : categories.getCategories()) { %>
-                    <li><a href="#"><%=c.getName()%></a></li>
-                    <% } %>
+                    <jsp:useBean id="categories" class="com.skorobahatko.library.bean.CategoryList"/>
+                    <c:forEach var="category" items="${categories.getCategories()}">
+                        <li><a href="#">${category.getName()}</a></li>
+                    </c:forEach>
                 </ul>
             </li>
             <li>
                 <h4>Authors</h4>
                 <ul>
-                    <jsp:useBean id="authors" class="com.skorobahatko.library.util.AuthorUtil"/>
-                    <% for(Author a : authors.getAuthors()) { %>
-                    <li><a href="#"><%=a.getName()%></a></li>
-                    <% } %>
+                    <jsp:useBean id="authors" class="com.skorobahatko.library.bean.AuthorList"/>
+                    <c:forEach var="author" items="${authors.getAuthors()}">
+                        <li><a href="#">${author.getName()}</a></li>
+                    </c:forEach>
                 </ul>
             </li>
         </ul>
