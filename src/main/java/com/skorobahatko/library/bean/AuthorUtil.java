@@ -1,6 +1,7 @@
-package com.skorobahatko.library.util;
+package com.skorobahatko.library.bean;
 
 import com.skorobahatko.library.entity.Author;
+import com.skorobahatko.library.util.DatabaseUtil;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
