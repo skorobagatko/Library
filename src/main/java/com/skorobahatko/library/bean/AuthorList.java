@@ -10,7 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AuthorUtil {
+public class AuthorList {
 
     private List<Author> authors;
 
