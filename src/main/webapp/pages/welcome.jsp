@@ -14,7 +14,6 @@
 <div class="container">
     <div class="welcome">
         <h1>Welcome to Java library</h1>
-        <p>Here are only the best Java-books</p>
     </div>
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
