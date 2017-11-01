@@ -2,11 +2,23 @@ package com.skorobahatko.library.entity;
 
 public class Book {
 
+    private long id;
     private String name;
     private String isbn;
     private Author author;
     private Category category;
+    private Publisher publisher;
     private int year;
+    private String content;
+    private String image;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -40,11 +52,35 @@ public class Book {
         this.category = genre;
     }
 
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
+    }
+
     public int getYear() {
         return year;
     }
 
     public void setYear(int year) {
         this.year = year;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
