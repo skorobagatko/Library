@@ -19,10 +19,9 @@
 									<img src="${pageContext.request.contextPath}/resources/images/books/${book.image}" alt=""/>
 									<span class="book-name">${book.name}</span>
 									<span class="author">${book.author.name}</span>
-									<%--<span class="isbn">${book.isbn}</span>--%>
 								</span>
                             </a>
-                            <a href="#" class="buy-btn">READ</a>
+                            <a href="book.jsp?book_id=${book.id}" class="buy-btn">READ</a>
                         </div>
                     </li>
                 </c:forEach>
