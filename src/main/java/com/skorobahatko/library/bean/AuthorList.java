@@ -28,6 +28,7 @@ public class AuthorList {
              ResultSet rs = stmt.executeQuery("SELECT * FROM library.author ORDER BY name;")) {
             while(rs.next()) {
                 Author author = new Author(rs.getString("name"));
+                author.setId(rs.getLong("id"));
                 authors.add(author);
             }
         } catch (SQLException e) {
