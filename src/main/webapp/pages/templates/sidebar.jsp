@@ -9,7 +9,7 @@
             <ul>
                 <jsp:useBean id="categories" class="com.skorobahatko.library.bean.CategoryList" scope="application"/>
                 <c:forEach var="category" items="${categories.getCategories()}">
-                    <li><a href="books.jsp?category=${category.getId()}">${category.getName()}</a></li>
+                    <li><a href="books.jsp?categoryId=${category.getId()}">${category.getName()}</a></li>
                 </c:forEach>
             </ul>
         </li>
@@ -18,7 +18,7 @@
             <ul>
                 <jsp:useBean id="authors" class="com.skorobahatko.library.bean.AuthorList" scope="application"/>
                 <c:forEach var="author" items="${authors.getAuthors()}">
-                    <li><a href="">${author.getName()}</a></li>
+                    <li><a href="books.jsp?authorId=${author.getId()}">${author.getName()}</a></li>
                 </c:forEach>
             </ul>
         </li>
