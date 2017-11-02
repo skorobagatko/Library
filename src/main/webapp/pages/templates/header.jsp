@@ -34,8 +34,14 @@
     <!-- End Navigation -->
     <div class="cl">&nbsp;</div>
     <!-- Login-details -->
+    <%
+        String username = request.getParameter("username");
+        if (username != null) {
+            session.setAttribute("username", username);
+        }
+    %>
     <div id="login-details">
-        <p>Welcome, <a href="#" id="user"><%=request.getParameter("username")%>
+        <p>Welcome, <a href="#" id="user"><%=session.getAttribute("username")%>
         </a>!</p>
     </div>
     <!-- End Login-details -->
@@ -46,8 +52,14 @@
 <div id="main" class="shell">
 
     <div class="search">
-        <form class="search-form" action="#">
-            <input class="search-field" type="text">
+        <form class="search-form" action="books.jsp" method="get">
+            <% String query = request.getParameter("query"); %>
+            <input id="query" name="query" class="search-field" type="text"
+            value="<%=(query != null) ? query : ""%>">
+            <select id="query_type" name="query_type">
+                <option>Name</option>
+                <option>Author</option>
+            </select>
             <input class="search-btn" type="submit" value="Search">
         </form>
     </div>
