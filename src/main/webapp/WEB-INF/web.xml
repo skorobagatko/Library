@@ -3,8 +3,18 @@
          version="3.0">
     <display-name>Library</display-name>
 
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
+
     <welcome-file-list>
-        <welcome-file>/pages/welcome.jsp</welcome-file>
+        <welcome-file>pages/welcome.xhtml</welcome-file>
     </welcome-file-list>
 
     <resource-ref>
