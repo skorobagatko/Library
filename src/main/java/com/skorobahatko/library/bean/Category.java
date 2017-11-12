@@ -1,4 +1,4 @@
-package com.skorobahatko.library.entity;
+package com.skorobahatko.library.bean;
 
 public class Category {
 
