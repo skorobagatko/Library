@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>Facelet Title</title>
+</h:head>
+<h:body>
+
+    <ui:composition template="templates/template.xhtml">
+
+        <ui:define name="title">
+            #{msg.books_list}
+        </ui:define>
+
+        <ui:define name="content">
+
+            <p><strong>#{msg.book_count} #{searchController.booksCount}</strong></p>
+
+            <h:dataTable value="#{searchController.bookList}" var="b" cellspacing="10px"
+                         columnClasses="col1, col2, col3">
+
+                <h:column>
+                    <h:graphicImage library="images" name="books/#{b.image}" width="120" height="160"/>
+                </h:column>
+
+                <h:column>
+
+                    <div>
+                        <p><a href="#">#{b.name}</a></p>
+                        <p><strong>#{msg.author_name}: </strong>#{b.author}</p>
+                        <p><strong>#{msg.publisher}</strong> #{b.publisher}</p>
+                        <p><strong>#{msg.publish_year}</strong> #{b.year} г.</p>
+                    </div>
+
+                </h:column>
+
+                <h:column>
+                    <div class="book_details">
+                        <p><strong>#{msg.description}</strong></p>
+                        <p>#{b.description}</p>
+                    </div>
+                </h:column>
+
+            </h:dataTable>
+
+            <div class="pager">
+                <h:form rendered="#{searchController.booksCount > searchController.booksPerPage}">
+                    #{msg.pager}:
+                    <ui:repeat value="#{searchController.pageNumbers}" var="pageNumber">
+                        <h:commandLink value="#{pageNumber}" action="#{searchController.selectPage()}"
+                                       styleClass="#{(pageNumber == searchController.currentPage) ? 'selected_page' : ''}">
+                            <f:param name="page" value="#{pageNumber}"/>
+                        </h:commandLink>
+                    </ui:repeat>
+                </h:form>
+            </div>
+
+        </ui:define>
+
+    </ui:composition>
+
+</h:body>
+</html>
