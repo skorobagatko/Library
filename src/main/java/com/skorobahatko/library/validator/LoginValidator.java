@@ -8,8 +8,8 @@ import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
 import java.util.ResourceBundle;
 
-@FacesValidator("nameValidator")
-public class NameValidator implements Validator {
+@FacesValidator("loginValidator")
+public class LoginValidator implements Validator {
     @Override
     public void validate(FacesContext facesContext, UIComponent uiComponent, Object o) throws ValidatorException {
         String value = (String) o;
