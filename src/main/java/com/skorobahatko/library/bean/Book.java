@@ -1,4 +1,4 @@
-package com.skorobahatko.library.entity;
+package com.skorobahatko.library.bean;
 
 public class Book {
 
@@ -11,6 +11,7 @@ public class Book {
     private int year;
     private String content;
     private String image;
+    private String description;
 
     public long getId() {
         return id;
@@ -82,5 +83,13 @@ public class Book {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
